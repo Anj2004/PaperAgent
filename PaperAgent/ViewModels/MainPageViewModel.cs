@@ -5,8 +5,13 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace PaperAgent.ViewModels
 {
-    public partial class MainPageViewModel
+    public partial class MainPageViewModel : ObservableObject
     {
-        public string PageTitle { get; set; } = "My Route";
-    }
+        [ObservableProperty]
+        private string _pageTitle = "Our Route";
+        public void ChangedTitle()
+        {
+            PageTitle = "Changed!";
+        }
+    } 
 }

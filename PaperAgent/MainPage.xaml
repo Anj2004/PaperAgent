@@ -9,6 +9,7 @@
         <Label Text="{Binding PageTitle}"
                FontSize="18"
                HorizontalOptions="Center" />
+        <Button Text="Test" Clicked="OnTestClicked" />
     </VerticalStackLayout>
 
 </ContentPage>
