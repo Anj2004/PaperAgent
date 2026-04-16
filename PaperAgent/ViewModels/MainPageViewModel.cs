@@ -9,9 +9,5 @@ namespace PaperAgent.ViewModels
     {
         [ObservableProperty]
         private string _pageTitle = "Our Route";
-        public void ChangedTitle()
-        {
-            PageTitle = "Changed!";
-        }
     } 
 }

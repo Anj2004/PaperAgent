@@ -1,3 +1,5 @@
+using PaperAgent.ViewModels;
+
 namespace PaperAgent.Views;
 
 public class CollectionView : ContentPage
@@ -11,5 +13,6 @@ public class CollectionView : ContentPage
 				}
 			}
 		};
+		BindingContext = new HouseholdViewModel();
 	}
 }

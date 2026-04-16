@@ -4,6 +4,12 @@
         <name>PaperAgent</name>
     </assembly>
     <members>
+        <member name="T:PaperAgent.ViewModels.HouseholdViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdViewModel.HouseholdTitle">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdViewModel._householdTitle"/>
+        </member>
         <member name="T:PaperAgent.ViewModels.MainPageViewModel">
             <inheritdoc/>
         </member>
@@ -22,6 +28,9 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.HouseholdTitle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "HouseholdTitle" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PageTitle" generated properties.</summary>
         </member>
@@ -30,6 +39,9 @@
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.HouseholdTitle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "HouseholdTitle" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PageTitle" generated properties.</summary>

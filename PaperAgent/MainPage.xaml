@@ -3,13 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PaperAgent.MainPage">
     <VerticalStackLayout>
-        <Label Text="Your Route"
-               FontSize="24"
-               HorizontalOptions="Center" />
-        <Label Text="{Binding PageTitle}"
+        <Label Text="{Binding HouseholdTitle}"
                FontSize="18"
                HorizontalOptions="Center" />
-        <Button Text="Test" Clicked="OnTestClicked" />
     </VerticalStackLayout>
 
 </ContentPage>
