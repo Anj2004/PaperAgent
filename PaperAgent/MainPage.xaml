@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PaperAgent.MainPage">
     <VerticalStackLayout>
-        <Label Text="{Binding HouseholdTitle}"
-               FontSize="18"
-               HorizontalOptions="Center" />
+        <TitleBar Title="{Binding HouseholdTitle}" BackgroundColor="#9F9F9F">
+            <TitleBar.Content>
+                <Label Text="{Binding HouseholdTitle}" FontSize="20" TextColor="#FFFFFF" HorizontalOptions="Center" VerticalOptions="Center" />
+                
+            </TitleBar.Content>
+        </TitleBar>
+
     </VerticalStackLayout>
 
 </ContentPage>
