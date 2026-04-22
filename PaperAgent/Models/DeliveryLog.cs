@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace PaperAgent.Models
 {
-    internal class DeliveryLog
+    [Table("DeliveryLog")]
+    public class DeliveryLog
     {
+        [PrimaryKey, AutoIncrement]
         public int Id {  get; set; }
+
+        [Indexed]
         public int SubscriptionId { get; set; }
         public DateTime DeliveryDate { get; set; }
         public bool WasDelivered { get; set; } = true;
