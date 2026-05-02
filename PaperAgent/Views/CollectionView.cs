@@ -13,6 +13,6 @@ public class CollectionView : ContentPage
 				}
 			}
 		};
-		BindingContext = new HouseholdViewModel();
+		BindingContext = new HouseholdsPageViewModel();
 	}
 }
