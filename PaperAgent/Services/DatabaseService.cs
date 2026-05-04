@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 using PaperAgent.Models;
+using PaperAgent.ViewModels;
 
 namespace PaperAgent.Services
 {
@@ -29,6 +30,12 @@ namespace PaperAgent.Services
             await _db.CreateTableAsync<Publication>();
             await _db.CreateTableAsync<PublicationCalendar>();
             await _db.CreateTableAsync<Subscription>();
+        }
+
+        public async Task<List<Household>> GetAllHouseholdsAsync()
+        {
+            var houses = await _db.Table<Household>().ToListAsync();
+            return houses;
         }
     }
 }
