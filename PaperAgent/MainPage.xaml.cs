@@ -9,7 +9,6 @@ namespace PaperAgent
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new HouseholdsPageViewModel();
         }
 
     }

@@ -1,30 +1,31 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using PaperAgent.Services;
+﻿using PaperAgent.Services;
+using PaperAgent.Views;
 
-namespace PaperAgent
+namespace PaperAgent;
+
+public partial class App : Application
 {
-    public partial class App : Application
-    {
-        public App(DatabaseService dbService)//By accepting DatabaseService as a constructor parameter, MAUI's dependency injection automatically passes in the singleton we registered in MauiProgram.cs
-        {
-            InitializeComponent();
-            //MainPage = new AppShell();
-            Task.Run(async () =>
-            {
-                try
-                {
-                    await dbService.InitAsync();
-                }
-                catch(Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Error initializing database: {ex.Message}");
-                }
-            }).Wait();
-        }
+    private readonly AppShell _appShell;
 
-        protected override Window CreateWindow(IActivationState? activationState)
+    public App(DatabaseService dbService, IServiceProvider serviceProvider)
+    {
+        InitializeComponent();
+        Task.Run(async () =>
         {
-            return new Window(new AppShell());
-        }
+            try
+            {
+                await dbService.InitAsync();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"DB Init failed: {ex.Message}");
+            }
+        }).Wait();
+        _appShell = serviceProvider.GetRequiredService<AppShell>();
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(_appShell);
     }
 }
