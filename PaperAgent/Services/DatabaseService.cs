@@ -37,5 +37,10 @@ namespace PaperAgent.Services
             var houses = await _db.Table<Household>().ToListAsync();
             return houses;
         }
+
+        public async Task SaveHouseholdAsync(Household household)
+        {
+            await _db.InsertAsync(household);
+        }
     }
 }

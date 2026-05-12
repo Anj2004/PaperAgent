@@ -4,6 +4,22 @@
         <name>PaperAgent</name>
     </assembly>
     <members>
+        <member name="T:PaperAgent.ViewModels.HouseholdsPageViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.NewName">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._newName"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.NewAddress">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._newAddress"/>
+        </member>
+        <member name="F:PaperAgent.ViewModels.HouseholdsPageViewModel.addHouseholdCommand">
+            <summary>The backing field for <see cref="P:PaperAgent.ViewModels.HouseholdsPageViewModel.AddHouseholdCommand"/>.</summary>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.AddHouseholdCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.AddHousehold"/>.</summary>
+        </member>
         <member name="T:PaperAgent.ViewModels.MainPageViewModel">
             <inheritdoc/>
         </member>
@@ -22,6 +38,12 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewAddress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewAddress" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PageTitle" generated properties.</summary>
         </member>
@@ -30,6 +52,12 @@
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewAddress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewAddress" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PageTitle" generated properties.</summary>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using PaperAgent.Models;
 using PaperAgent.Services;
+using CommunityToolkit.Mvvm.Input;
 
 namespace PaperAgent.ViewModels
 {
@@ -27,6 +28,29 @@ namespace PaperAgent.ViewModels
             {
                 Households.Add(item);
             }
+        }
+
+        [ObservableProperty]
+        private string _newName; //generates public property NewName. This is mainly to keep the users data through get and set. Since there
+                                //might come more and more instances of this, we do the get and set using the source generator. After get;set; the 
+                               //source generator generates the public property NewName. 
+
+        [ObservableProperty]
+        private string _newAddress; //generates public property NewAddress
+
+        [RelayCommand]
+        public async Task AddHousehold()
+        {
+            Household newHouse = new Household
+            {
+                Name = NewName,
+                Address = NewAddress,
+            };
+            await _dbService.SaveHouseholdAsync(newHouse);//save to db
+            await LoadHouseholdsAsync(); //refresh the list
+
+            NewName = string.Empty;//empty both
+            NewAddress = string.Empty;
         }
     }
 }

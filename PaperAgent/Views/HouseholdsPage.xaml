@@ -6,6 +6,10 @@
     <VerticalStackLayout>
         <Label Text="My Route" FontSize="24" />
         
+        <Entry Placeholder="Name" Text="{Binding NewName}" />
+        <Entry Placeholder="Address" Text="{Binding NewAddress}" />
+        <Button Text="Add Household" Command="{Binding AddHouseholdCommand}" />
+        
         <CollectionView ItemsSource="{Binding Households}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
