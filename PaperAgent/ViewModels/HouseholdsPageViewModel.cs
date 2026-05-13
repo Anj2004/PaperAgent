@@ -23,11 +23,15 @@ namespace PaperAgent.ViewModels
         public async Task LoadHouseholdsAsync()
         {
             var items = await _dbService.GetAllHouseholdsAsync();
-            Households.Clear();
-            foreach (var item in items)
+
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                Households.Add(item);
-            }
+                Households.Clear();
+                foreach (var item in items)
+                {
+                    Households.Add(item);
+                }
+            });
         }
 
         [ObservableProperty]
@@ -41,16 +45,28 @@ namespace PaperAgent.ViewModels
         [RelayCommand]
         public async Task AddHousehold()
         {
-            Household newHouse = new Household
+            try
             {
-                Name = NewName,
-                Address = NewAddress,
-            };
-            await _dbService.SaveHouseholdAsync(newHouse);//save to db
-            await LoadHouseholdsAsync(); //refresh the list
+                if (string.IsNullOrWhiteSpace(NewName) || string.IsNullOrWhiteSpace(NewAddress))
+                    return;
 
-            NewName = string.Empty;//empty both
-            NewAddress = string.Empty;
+                Household newHouse = new Household
+                {
+                    Name = NewName,
+                    Address = NewAddress,
+                };
+                await _dbService.SaveHouseholdAsync(newHouse);//save to db
+                await LoadHouseholdsAsync(); //refresh the list
+
+                NewName = string.Empty;//empty both
+                NewAddress = string.Empty;
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"AddHousehold failed: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Stack trace: {ex.StackTrace}");
+            }
+
         }
     }
 }
