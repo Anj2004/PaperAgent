@@ -40,6 +40,11 @@ namespace PaperAgent.Services
 
         public async Task SaveHouseholdAsync(Household household)
         {
+            if(_db == null)
+            {
+                System.Diagnostics.Debug.WriteLine("SaveHouseholdAsync: _db is null");
+                return;
+            }
             await _db.InsertAsync(household);
         }
     }
