@@ -17,7 +17,6 @@ namespace PaperAgent.Models
         [NotNull]
         public string Address { get; set; }
 
-        [NotNull]
         public string Phone { get; set; }
 
         [NotNull]
