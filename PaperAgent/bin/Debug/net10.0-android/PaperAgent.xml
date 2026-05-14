@@ -7,6 +7,7 @@
         <member name="T:PaperAgent.ViewModels.HouseholdsPageViewModel">
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.NewName">
             <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._newName"/>
@@ -14,11 +15,20 @@
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.NewAddress">
             <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._newAddress"/>
         </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.HouseholdCount">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._householdCount"/>
+        </member>
         <member name="F:PaperAgent.ViewModels.HouseholdsPageViewModel.addHouseholdCommand">
             <summary>The backing field for <see cref="P:PaperAgent.ViewModels.HouseholdsPageViewModel.AddHouseholdCommand"/>.</summary>
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.AddHouseholdCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.AddHousehold"/>.</summary>
+        </member>
+        <member name="F:PaperAgent.ViewModels.HouseholdsPageViewModel.deleteHouseholdCommand">
+            <summary>The backing field for <see cref="P:PaperAgent.ViewModels.HouseholdsPageViewModel.DeleteHouseholdCommand"/>.</summary>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.DeleteHouseholdCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.DeleteHousehold(System.Int32)"/>.</summary>
         </member>
         <member name="T:PaperAgent.ViewModels.MainPageViewModel">
             <inheritdoc/>
@@ -44,6 +54,9 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewAddress">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewAddress" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.HouseholdCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "HouseholdCount" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PageTitle" generated properties.</summary>
         </member>
@@ -58,6 +71,9 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewAddress">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewAddress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.HouseholdCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "HouseholdCount" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PageTitle" generated properties.</summary>
