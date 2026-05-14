@@ -47,5 +47,10 @@ namespace PaperAgent.Services
             }
             await _db.InsertAsync(household);
         }
+
+        public async Task DeleteHouseholdAsync(int id)
+        {
+            await _db.DeleteAsync<Household>(id);
+        }
     }
 }
