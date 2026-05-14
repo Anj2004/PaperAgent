@@ -14,33 +14,36 @@ namespace PaperAgent.ViewModels
         public ObservableCollection<Household> Households { get; set; } = new();
 
         private readonly DatabaseService _dbService;
+
+
+        [ObservableProperty]
+        private string _newName; //generates public property NewName. This is mainly to keep the users data through get and set. Since theremight come more and more instances of this, we do the get and set using the source generator. After get;set; the source generator generates the public property NewName. 
+
+        [ObservableProperty]
+        private string _newAddress; //generates public property NewAddress
+
+        [ObservableProperty]
+        private int _householdCount;
+
         public HouseholdsPageViewModel(DatabaseService dbService) 
         {
             _dbService = dbService;
-        
         }
 
         public async Task LoadHouseholdsAsync()
         {
             var items = await _dbService.GetAllHouseholdsAsync();
 
-            MainThread.BeginInvokeOnMainThread(() =>
+            MainThread.BeginInvokeOnMainThread(() => //UI chngs must be touched by Main thread only. Right before running this the cntrl would be with a bg thread. So at this step, we are clearing the household list; ie touching the UI. So we pass the cntrl back to the main thread. 
             {
                 Households.Clear();
                 foreach (var item in items)
                 {
                     Households.Add(item);
                 }
+                HouseholdCount = Households.Count; //update the count after loading the households
             });
         }
-
-        [ObservableProperty]
-        private string _newName; //generates public property NewName. This is mainly to keep the users data through get and set. Since there
-                                //might come more and more instances of this, we do the get and set using the source generator. After get;set; the 
-                               //source generator generates the public property NewName. 
-
-        [ObservableProperty]
-        private string _newAddress; //generates public property NewAddress
 
         [RelayCommand]
         public async Task AddHousehold()
@@ -68,5 +71,14 @@ namespace PaperAgent.ViewModels
             }
 
         }
+
+        [RelayCommand] //To delete the household
+        public async Task DeleteHousehold(int id)
+        {
+            await _dbService.DeleteHouseholdAsync(id);
+            await LoadHouseholdsAsync();
+        }
+
+
     }
 }
