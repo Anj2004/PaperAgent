@@ -45,7 +45,7 @@ namespace PaperAgent.ViewModels
             });
         }
 
-        [RelayCommand]
+        [RelayCommand] //To add a new household
         public async Task AddHousehold()
         {
             try
@@ -79,6 +79,11 @@ namespace PaperAgent.ViewModels
             await LoadHouseholdsAsync();
         }
 
+        [RelayCommand]
+        private async Task GoToHousehold(Household household)
+        {
+            await Shell.Current.GoToAsync($"householddetail?id={household.Id}");
+        }
 
     }
 }
