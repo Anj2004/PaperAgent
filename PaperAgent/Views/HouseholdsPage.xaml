@@ -13,7 +13,13 @@
         <CollectionView ItemsSource="{Binding Households}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <HorizontalStackLayout>
+                    <HorizontalStackLayout Padding="10">
+                        
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToHouseholdCommand}"
+                                                  CommandParameter="{Binding .}"/><!--pass the entire current Household object as a parameter-->
+                        </HorizontalStackLayout.GestureRecognizers>
+                        
                         <VerticalStackLayout>
                             <Label Text="{Binding Name}" FontSize="Medium"/>
                             <Label Text="{Binding Address}" FontSize="Small" />
@@ -21,6 +27,7 @@
                         <Button Text="Delete" 
                             Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteHouseholdCommand}"
                             CommandParameter="{Binding Id}"/>
+                        
                     </HorizontalStackLayout>
                     <!--<StackLayout Orientation="Vertical" Padding="10">
                         <Label Text="{Binding Name}" FontSize="Medium" />
