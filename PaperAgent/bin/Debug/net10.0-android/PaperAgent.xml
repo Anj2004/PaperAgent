@@ -8,6 +8,7 @@
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.NewName">
             <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._newName"/>
@@ -29,6 +30,12 @@
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.DeleteHouseholdCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.DeleteHousehold(System.Int32)"/>.</summary>
+        </member>
+        <member name="F:PaperAgent.ViewModels.HouseholdsPageViewModel.goToHouseholdCommand">
+            <summary>The backing field for <see cref="P:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToHouseholdCommand"/>.</summary>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToHouseholdCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToHousehold(PaperAgent.Models.Household)"/>.</summary>
         </member>
         <member name="T:PaperAgent.ViewModels.MainPageViewModel">
             <inheritdoc/>

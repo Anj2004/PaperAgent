@@ -74,6 +74,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\HouseholdDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\HouseholdsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

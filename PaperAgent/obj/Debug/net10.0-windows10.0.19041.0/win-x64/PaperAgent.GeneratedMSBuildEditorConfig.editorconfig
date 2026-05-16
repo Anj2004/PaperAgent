@@ -84,6 +84,16 @@ build_metadata.AdditionalFiles.NoWarn =
 build_metadata.AdditionalFiles.EnableDiagnostics = 
 build_metadata.AdditionalFiles.LineInfo = 
 
+[D:/PaperAgent/PaperAgent/Views/HouseholdDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PaperAgent.Views.HouseholdDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HouseholdDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HouseholdDetailPage.xaml
+build_metadata.AdditionalFiles.Inflator = SourceGen
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
+
 [D:/PaperAgent/PaperAgent/Views/HouseholdsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = PaperAgent.Views.HouseholdsPage.xaml
