@@ -11,6 +11,7 @@ namespace PaperAgent
         {
             InitializeComponent();
             // You can now use the injected HouseholdsPage instance
+            Routing.RegisterRoute("householddetail",typeof(HouseholdDetailPage));//when someone navigates to householddetail, show HouseholdDetailPage
         }
 
     }
