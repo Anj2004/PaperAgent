@@ -23,6 +23,9 @@ namespace PaperAgent
             builder.Services.AddTransient<HouseholdsPage>(); // Adding the HouseholdsPage as a transient service means that a new instance of the page will be created each time it is requested. This is useful for pages that may have dynamic content or need to be refreshed each time they are displayed.
             builder.Services.AddTransient<HouseholdsPageViewModel>(); //Corresponding viewmodel must also be transient
 
+            builder.Services.AddTransient<HouseholdDetailPage>();
+            builder.Services.AddTransient<HouseholdDetailViewModel>();
+
             builder.Services.AddSingleton<AppShell>();
 
 #if DEBUG
