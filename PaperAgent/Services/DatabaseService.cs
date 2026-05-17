@@ -40,7 +40,7 @@ namespace PaperAgent.Services
 
         public async Task SaveHouseholdAsync(Household household)
         {
-            if(_db == null)
+            if (_db == null)
             {
                 System.Diagnostics.Debug.WriteLine("SaveHouseholdAsync: _db is null");
                 return;
@@ -51,6 +51,11 @@ namespace PaperAgent.Services
         public async Task DeleteHouseholdAsync(int id)
         {
             await _db.DeleteAsync<Household>(id);
+        }
+
+        public async Task<Household> GetHouseholdAsync(int id)
+        {
+            return await _db.Table<Household>().Where(h => h.Id == id).FirstOrDefaultAsync();
         }
     }
 }
