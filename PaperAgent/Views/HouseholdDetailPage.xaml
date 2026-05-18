@@ -4,9 +4,7 @@
              x:Class="PaperAgent.Views.HouseholdDetailPage"
              Title="HouseholdDetailPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="{Binding HouseholdName}" FontSize="24"/>
+        <Label Text="{Binding HouseholdAddress}" FontSize="16"/>
     </VerticalStackLayout>
 </ContentPage>
