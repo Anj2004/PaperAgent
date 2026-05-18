@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaperAgent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+ce1ebd8392072e700306cb04a52fb018ee4d92ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+ecaccf6772f44aa76d88e717d8f899ef0bbd7c67")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaperAgent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaperAgent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
