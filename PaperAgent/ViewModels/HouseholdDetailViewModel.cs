@@ -22,21 +22,27 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private string _householdName;
 
+        [ObservableProperty]
+        private string _householdAddress;
+
         public HouseholdDetailViewModel(DatabaseService dbService)
         {
             _dbService = dbService;
         }
 
-
+        //Added the LoadHouseholdAsync()
+        //that takes the houseold object returned from the db and stores the household name
+        //into a variable, in order to display."
         public async Task LoadHouseholdAsync()
         {
             Household household = await _dbService.GetHouseholdAsync(HouseholdId);
             HouseholdName = household.Name;
+            HouseholdAddress = household.Address;
         }
 
-        partial void OnHouseholdIdChanged(int value)//but why partial void and why value? Start from here
+        partial void OnHouseholdIdChanged(int value)//The other half is auto generated. It returns the id as "value"
         {
-            _ = LoadHouseholdAsync();
+            _ = LoadHouseholdAsync();//Loadhousehold returns a task. But we dont want to await for it. Its fire & forget. Need to check why.
         }
 
     }
