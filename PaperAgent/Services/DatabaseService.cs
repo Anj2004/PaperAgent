@@ -57,5 +57,16 @@ namespace PaperAgent.Services
         {
             return await _db.Table<Household>().Where(h => h.Id == id).FirstOrDefaultAsync();
         }
+
+        public async Task<List<Publication>> GetAllPublicationsAsync()
+        {
+            return await _db.Table<Publication>().ToListAsync();
+        }
+        public async Task<List<Subscription>> GetSubscriptionsAsync(int householdId)
+        {
+            return await _db.Table<Subscription>()
+                            .Where(s => s.HouseholdId == householdId && s.IsActive)
+                            .ToListAsync();
+        }
     }
 }
