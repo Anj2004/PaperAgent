@@ -4,6 +4,7 @@ using System.Text;
 using CommunityToolkit.Mvvm.ComponentModel;
 using PaperAgent.Services;
 using PaperAgent.Models;
+using System.Collections.ObjectModel;
 
 namespace PaperAgent.ViewModels
 {
@@ -25,6 +26,8 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private string _householdAddress;
 
+        public ObservableCollection<Subscription> Subscriptions { get; set; } = new();
+
         public HouseholdDetailViewModel(DatabaseService dbService)
         {
             _dbService = dbService;
@@ -38,12 +41,28 @@ namespace PaperAgent.ViewModels
             Household household = await _dbService.GetHouseholdAsync(HouseholdId);
             HouseholdName = household.Name;
             HouseholdAddress = household.Address;
+            await LoadSubscriptionsAsync();
         }
 
         partial void OnHouseholdIdChanged(int value)//The other half is auto generated. It returns the id as "value"
         {
             _ = LoadHouseholdAsync();//Loadhousehold returns a task. But we dont want to await for it. Its fire & forget. Need to check why.
         }
+
+        public async Task LoadSubscriptionsAsync()
+        {
+            var subscriptions = await _dbService.GetSubscriptionsAsync(HouseholdId);
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Subscriptions.Clear();
+                foreach (var subscription in subscriptions)
+                {
+                    Subscriptions.Add(subscription);
+                }
+            });
+        }
+
 
     }
 }
