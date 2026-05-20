@@ -68,5 +68,11 @@ namespace PaperAgent.Services
                             .Where(s => s.HouseholdId == householdId && s.IsActive)
                             .ToListAsync();
         }
+
+        //Add a save method for publications
+        public async Task SavePublicationAsync(Publication publication)
+        {
+            await _db.InsertAsync(publication);
+        }
     }
 }
