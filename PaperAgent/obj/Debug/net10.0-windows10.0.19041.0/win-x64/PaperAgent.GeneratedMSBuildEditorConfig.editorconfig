@@ -103,3 +103,13 @@ build_metadata.AdditionalFiles.Inflator = SourceGen
 build_metadata.AdditionalFiles.NoWarn = 
 build_metadata.AdditionalFiles.EnableDiagnostics = 
 build_metadata.AdditionalFiles.LineInfo = 
+
+[D:/PaperAgent/PaperAgent/Views/PublicationsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PaperAgent.Views.PublicationsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\PublicationsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\PublicationsPage.xaml
+build_metadata.AdditionalFiles.Inflator = SourceGen
+build_metadata.AdditionalFiles.NoWarn = 
+build_metadata.AdditionalFiles.EnableDiagnostics = 
+build_metadata.AdditionalFiles.LineInfo = 
