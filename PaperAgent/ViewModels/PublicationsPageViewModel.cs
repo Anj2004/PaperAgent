@@ -47,7 +47,13 @@ namespace PaperAgent.ViewModels
         [RelayCommand]
         public async Task AddPublicationAsync() // stopping here, need to analyse , learn & doc
         {
-
+            Publication publication = new Publication
+            {
+                Name = NewName,
+                Type = NewType,
+                Frequency = NewFrequency,
+            };
+            await _dbService.SavePublicationAsync(publication);
         }
 
     }
