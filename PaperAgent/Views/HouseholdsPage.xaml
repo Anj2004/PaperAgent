@@ -9,7 +9,9 @@
         <Entry Placeholder="Name" Text="{Binding NewName}" />
         <Entry Placeholder="Address" Text="{Binding NewAddress}" />
         <Button Text="Add Household" Command="{Binding AddHouseholdCommand}" />
-        
+
+        <Button Text="Manage Publications" Command="{Binding GoToPublicationsCommand}"/>
+
         <CollectionView ItemsSource="{Binding Households}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -24,6 +26,7 @@
                             <Label Text="{Binding Name}" FontSize="Medium"/>
                             <Label Text="{Binding Address}" FontSize="Small" />
                         </VerticalStackLayout>
+                        
                         <Button Text="Delete" 
                             Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteHouseholdCommand}"
                             CommandParameter="{Binding Id}"/>
