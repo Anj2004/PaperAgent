@@ -26,6 +26,9 @@ namespace PaperAgent
             builder.Services.AddTransient<HouseholdDetailPage>();
             builder.Services.AddTransient<HouseholdDetailViewModel>();
 
+            builder.Services.AddTransient<PublicationsPage>();
+            builder.Services.AddTransient<PublicationsPageViewModel>();
+
             builder.Services.AddSingleton<AppShell>();
 
 #if DEBUG
