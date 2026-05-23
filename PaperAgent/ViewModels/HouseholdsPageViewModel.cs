@@ -85,5 +85,11 @@ namespace PaperAgent.ViewModels
             await Shell.Current.GoToAsync($"householddetail?id={household.Id}");
         }
 
+        [RelayCommand]
+        private async Task GoToPublications()
+        {
+            await Shell.Current.GoToAsync("publications");//navigate to the route named publications
+        }
+
     }
 }
