@@ -4,9 +4,31 @@
              x:Class="PaperAgent.Views.PublicationsPage"
              Title="PublicationsPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Entry Placeholder="Name" Text="{Binding NewName}"  />
+        <Entry Placeholder="Type" Text="{Binding NewType}" />
+        <Entry Placeholder="Frequency" Text="{Binding NewFrequency}" />
+        <Entry Placeholder="Price" Text="{Binding NewPrice}" Keyboard="Numeric" />
+
+        <Button Text="Add Publication" Command="{Binding AddPublicationCommand}" />
+
+        <CollectionView ItemsSource="{Binding Publications}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10">
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToPublicationCommand}"
+                                                  CommandParameter="{Binding .}"/>
+                        </HorizontalStackLayout.GestureRecognizers>
+
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontSize="Medium"/>
+                            <Label Text="{Binding Type}" FontSize="Small" />
+                            <Label Text="{Binding Frequency}" FontSize="Small" />
+                            <!-- <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" FontSize="Small" /> -->
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
