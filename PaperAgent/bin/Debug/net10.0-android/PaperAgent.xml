@@ -29,6 +29,7 @@
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.NewName">
             <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdsPageViewModel._newName"/>
@@ -57,11 +58,39 @@
         <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToHouseholdCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToHousehold(PaperAgent.Models.Household)"/>.</summary>
         </member>
+        <member name="F:PaperAgent.ViewModels.HouseholdsPageViewModel.goToPublicationsCommand">
+            <summary>The backing field for <see cref="P:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToPublicationsCommand"/>.</summary>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToPublicationsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdsPageViewModel.GoToPublications"/>.</summary>
+        </member>
         <member name="T:PaperAgent.ViewModels.MainPageViewModel">
             <inheritdoc/>
         </member>
         <member name="P:PaperAgent.ViewModels.MainPageViewModel.PageTitle">
             <inheritdoc cref="F:PaperAgent.ViewModels.MainPageViewModel._pageTitle"/>
+        </member>
+        <member name="T:PaperAgent.ViewModels.PublicationsPageViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.PublicationsPageViewModel.NewName">
+            <inheritdoc cref="F:PaperAgent.ViewModels.PublicationsPageViewModel._newName"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.PublicationsPageViewModel.NewType">
+            <inheritdoc cref="F:PaperAgent.ViewModels.PublicationsPageViewModel.__newType"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.PublicationsPageViewModel.NewFrequency">
+            <inheritdoc cref="F:PaperAgent.ViewModels.PublicationsPageViewModel._newFrequency"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.PublicationsPageViewModel.NewPricePerIssue">
+            <inheritdoc cref="F:PaperAgent.ViewModels.PublicationsPageViewModel._newPricePerIssue"/>
+        </member>
+        <member name="F:PaperAgent.ViewModels.PublicationsPageViewModel.addPublicationCommand">
+            <summary>The backing field for <see cref="P:PaperAgent.ViewModels.PublicationsPageViewModel.AddPublicationCommand"/>.</summary>
+        </member>
+        <member name="P:PaperAgent.ViewModels.PublicationsPageViewModel.AddPublicationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PaperAgent.ViewModels.PublicationsPageViewModel.AddPublicationAsync"/>.</summary>
         </member>
         <member name="T:PaperAgent.Resource">
             <summary>
@@ -99,6 +128,15 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PageTitle" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewFrequency">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewFrequency" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewPricePerIssue">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewPricePerIssue" generated properties.</summary>
+        </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
@@ -128,6 +166,15 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PageTitle">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PageTitle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewType">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewType" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewFrequency">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewFrequency" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewPricePerIssue">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewPricePerIssue" generated properties.</summary>
         </member>
     </members>
 </doc>
