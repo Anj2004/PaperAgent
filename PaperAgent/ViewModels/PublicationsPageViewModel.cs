@@ -52,6 +52,7 @@ namespace PaperAgent.ViewModels
                 Name = NewName,
                 Type = NewType,
                 Frequency = NewFrequency,
+                PricePerIssue = decimal.Parse(NewPricePerIssue)
             };
             await _dbService.SavePublicationAsync(publication);
         }
