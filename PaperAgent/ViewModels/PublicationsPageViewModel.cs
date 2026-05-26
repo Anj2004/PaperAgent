@@ -25,7 +25,7 @@ namespace PaperAgent.ViewModels
         private string _newFrequency;
 
         [ObservableProperty]
-        private string _newPricePerIssue;
+        private decimal _newPricePerIssue;
         public PublicationsPageViewModel(DatabaseService dbService)
         {
             _dbService = dbService;
@@ -47,14 +47,30 @@ namespace PaperAgent.ViewModels
         [RelayCommand]
         public async Task AddPublicationAsync() // stopping here, need to analyse , learn & doc
         {
-            Publication publication = new Publication
+            try
             {
-                Name = NewName,
-                Type = NewType,
-                Frequency = NewFrequency,
-                PricePerIssue = decimal.Parse(NewPricePerIssue)
-            };
-            await _dbService.SavePublicationAsync(publication);
+                Publication publication = new Publication
+                {
+                    Name = NewName,
+                    Type = NewType,
+                    Frequency = NewFrequency,
+                    PricePerIssue = 0,
+                    IsActive = true
+                };
+                await _dbService.SavePublicationAsync(publication);
+                await LoadPublicationsAsync();
+
+                NewName = string.Empty;
+                NewType = string.Empty;
+                NewFrequency = string.Empty;
+                NewPricePerIssue = 0;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (e.g., show an error message to the user)
+                Console.WriteLine($"Error adding publication: {ex.Message}");
+            }
+
         }
 
     }
