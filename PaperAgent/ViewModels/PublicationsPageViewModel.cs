@@ -54,7 +54,7 @@ namespace PaperAgent.ViewModels
                     Name = NewName,
                     Type = NewType,
                     Frequency = NewFrequency,
-                    PricePerIssue = 0,
+                    PricePerIssue = NewPricePerIssue,
                     IsActive = true
                 };
                 await _dbService.SavePublicationAsync(publication);
