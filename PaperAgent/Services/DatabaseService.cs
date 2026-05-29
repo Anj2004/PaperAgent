@@ -74,5 +74,10 @@ namespace PaperAgent.Services
         {
             await _db.InsertAsync(publication);
         }
+
+        public async Task SaveSubscriptionAsync(Subscription subscription)
+        {
+            await _db.InsertAsync(subscription);
+        }
     }
 }
