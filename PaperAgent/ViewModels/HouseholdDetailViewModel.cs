@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using PaperAgent.Services;
 using PaperAgent.Models;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace PaperAgent.ViewModels
 {
@@ -26,7 +27,12 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private string _householdAddress;
 
+        [ObservableProperty]
+        private Publication _selectedPublication;
+
         public ObservableCollection<Subscription> Subscriptions { get; set; } = new();
+
+        public ObservableCollection<Publication> Publications { get; set; } = new();
 
         public HouseholdDetailViewModel(DatabaseService dbService)
         {
@@ -42,6 +48,7 @@ namespace PaperAgent.ViewModels
             HouseholdName = household.Name;
             HouseholdAddress = household.Address;
             await LoadSubscriptionsAsync();
+            await LoadPublicationsAsync();
         }
 
         partial void OnHouseholdIdChanged(int value)//The other half is auto generated. It returns the id as "value"
@@ -61,6 +68,40 @@ namespace PaperAgent.ViewModels
                     Subscriptions.Add(subscription);
                 }
             });
+        }
+
+        public async Task LoadPublicationsAsync()
+        {
+            var publications = await _dbService.GetAllPublicationsAsync();
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Publications.Clear(); ;
+                foreach (var publication in publications)
+                {
+                    Publications.Add(publication);
+                }
+            });
+        }
+
+        [RelayCommand]
+        public async Task AddSubscription()
+        {
+            if (SelectedPublication == null) return;
+
+            var subscription = new Subscription
+            {
+                HouseholdId = HouseholdId,
+                PublicationId = SelectedPublication.Id,
+                StartDate = DateTime.Now,
+                IsActive = true,
+                Quantity = 1
+            };
+
+            await _dbService.SaveSubscriptionAsync(subscription);
+            await LoadSubscriptionsAsync();
+            SelectedPublication = null;
+
         }
 
 
