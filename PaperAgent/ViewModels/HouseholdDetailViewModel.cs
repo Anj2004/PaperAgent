@@ -30,7 +30,7 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private Publication _selectedPublication;
 
-        public ObservableCollection<Subscription> Subscriptions { get; set; } = new();
+        public ObservableCollection<SubscriptionDisplay> Subscriptions { get; set; } = new();
 
         public ObservableCollection<Publication> Publications { get; set; } = new();
 
@@ -102,6 +102,14 @@ namespace PaperAgent.ViewModels
             await LoadSubscriptionsAsync();
             SelectedPublication = null;
 
+        }
+
+        public class SubscriptionDisplay
+        {
+            public int SubscriptionId { get; set; }
+            public string PublicationName { get; set; }
+            public int Quantity { get; set; }
+            public bool IsActive { get; set; }
         }
 
 
