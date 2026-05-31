@@ -34,6 +34,14 @@ namespace PaperAgent.ViewModels
 
         public ObservableCollection<Publication> Publications { get; set; } = new();
 
+        public class SubscriptionDisplay
+        {
+            public int SubscriptionId { get; set; }
+            public string PublicationName { get; set; }
+            public int Quantity { get; set; }
+            public bool IsActive { get; set; }
+        }
+
         public HouseholdDetailViewModel(DatabaseService dbService)
         {
             _dbService = dbService;
@@ -59,13 +67,21 @@ namespace PaperAgent.ViewModels
         public async Task LoadSubscriptionsAsync()
         {
             var subscriptions = await _dbService.GetSubscriptionsAsync(HouseholdId);
+            var publications = await _dbService.GetAllPublicationsAsync();
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
                 Subscriptions.Clear();
                 foreach (var subscription in subscriptions)
                 {
-                    Subscriptions.Add(subscription);
+                    var pub = publications.FirstOrDefault(p => p.Id == subscription.PublicationId);
+                    Subscriptions.Add(new SubscriptionDisplay
+                    {
+                        SubscriptionId = subscription.Id,
+                        PublicationName = pub?.Name ?? "Unknown",
+                        Quantity = subscription.Quantity,
+                        IsActive = subscription.IsActive
+                    });
                 }
             });
         }
@@ -104,13 +120,6 @@ namespace PaperAgent.ViewModels
 
         }
 
-        public class SubscriptionDisplay
-        {
-            public int SubscriptionId { get; set; }
-            public string PublicationName { get; set; }
-            public int Quantity { get; set; }
-            public bool IsActive { get; set; }
-        }
 
 
     }
