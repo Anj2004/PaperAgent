@@ -30,6 +30,18 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private Publication _selectedPublication;
 
+        [ObservableProperty]
+        private SubscriptionDisplay _selectedSubscription;
+
+        [ObservableProperty]
+        private DateTime _pauseFromDate = DateTime.Now;
+
+        [ObservableProperty]
+        private DateTime _pauseToDate = DateTime.Now.AddDays(7);
+
+        [ObservableProperty]
+        private string _pauseReason;
+
         public ObservableCollection<SubscriptionDisplay> Subscriptions { get; set; } = new();
 
         public ObservableCollection<Publication> Publications { get; set; } = new();
@@ -120,6 +132,21 @@ namespace PaperAgent.ViewModels
 
         }
 
+        [RelayCommand]
+        private async Task AddPause()
+        {
+            if (SelectedSubscription == null) return;
+            var pause = new PauseRequest
+            {
+                SubscriptionId = SelectedSubscription.SubscriptionId,
+                FromDate = PauseFromDate,
+                ToDate = PauseToDate,
+                Reason = PauseReason
+            };
+            await _dbService.SavePauseRequestAsync(pause);
+            SelectedSubscription = null;
+            PauseReason = string.Empty;
+        }
 
 
     }
