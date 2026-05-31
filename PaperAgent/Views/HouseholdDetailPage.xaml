@@ -16,7 +16,8 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout Padding="8">
-                        <Label Text="{Binding PublicationId}" FontSize="14"/>
+                        <Label Text="{Binding PublicationName}" FontSize="14"/>
+                        <Label Text="{Binding Quantity, StringFormat='Qty: {0}'}" FontSize="12"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
