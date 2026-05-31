@@ -7,6 +7,7 @@
         <member name="T:PaperAgent.ViewModels.HouseholdDetailViewModel">
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.Household">
             <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdDetailViewModel._household"/>
@@ -23,6 +24,18 @@
         <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.SelectedPublication">
             <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdDetailViewModel._selectedPublication"/>
         </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.SelectedSubscription">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdDetailViewModel._selectedSubscription"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.PauseFromDate">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdDetailViewModel._pauseFromDate"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.PauseToDate">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdDetailViewModel._pauseToDate"/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.PauseReason">
+            <inheritdoc cref="F:PaperAgent.ViewModels.HouseholdDetailViewModel._pauseReason"/>
+        </member>
         <member name="M:PaperAgent.ViewModels.HouseholdDetailViewModel.OnHouseholdIdChanged(System.Int32)">
             <summary>Executes the logic for when <see cref="P:PaperAgent.ViewModels.HouseholdDetailViewModel.HouseholdId"/> just changed.</summary>
             <param name="value">The new property value that was set.</param>
@@ -33,6 +46,12 @@
         </member>
         <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.AddSubscriptionCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdDetailViewModel.AddSubscription"/>.</summary>
+        </member>
+        <member name="F:PaperAgent.ViewModels.HouseholdDetailViewModel.addPauseCommand">
+            <summary>The backing field for <see cref="P:PaperAgent.ViewModels.HouseholdDetailViewModel.AddPauseCommand"/>.</summary>
+        </member>
+        <member name="P:PaperAgent.ViewModels.HouseholdDetailViewModel.AddPauseCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PaperAgent.ViewModels.HouseholdDetailViewModel.AddPause"/>.</summary>
         </member>
         <member name="T:PaperAgent.ViewModels.HouseholdsPageViewModel">
             <inheritdoc/>
@@ -129,6 +148,18 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedPublication">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedPublication" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedSubscription">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedSubscription" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PauseFromDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PauseFromDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PauseToDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PauseToDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PauseReason">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PauseReason" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewName" generated properties.</summary>
         </member>
@@ -170,6 +201,18 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedPublication">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedPublication" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedSubscription">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedSubscription" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PauseFromDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PauseFromDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PauseToDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PauseToDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PauseReason">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PauseReason" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewName">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewName" generated properties.</summary>
