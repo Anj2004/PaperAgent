@@ -79,5 +79,10 @@ namespace PaperAgent.Services
         {
             await _db.InsertAsync(subscription);
         }
+
+        public async Task SavePauseRequestAsync(PauseRequest pauseRequest)
+        {
+            await _db.InsertAsync(pauseRequest);
+        }
     }
 }
