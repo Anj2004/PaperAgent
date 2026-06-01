@@ -5,7 +5,7 @@ using System.Text;
 namespace PaperAgent.Services
 {
 
-    public class BillingService()
+    public class BillingService
     {
         private readonly DatabaseService _dbService;
         public BillingService(DatabaseService dbService)

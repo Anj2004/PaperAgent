@@ -84,5 +84,12 @@ namespace PaperAgent.Services
         {
             await _db.InsertAsync(pauseRequest);
         }
+
+        public async Task<List<PauseRequest>> GetPauseRequestsAsync(int subscriptionId, DateTime From, DateTime To)
+        {
+            return await _db.Table<PauseRequest>()
+                            .Where(p => p.SubscriptionId == subscriptionId && p.FromDate >= From && p.ToDate <= To) //did on conscience
+                            .ToListAsync();
+        }
     }
 }
