@@ -91,5 +91,26 @@ namespace PaperAgent.Services
                             .Where(p => p.SubscriptionId == subscriptionId && p.FromDate >= From && p.ToDate <= To) //did on conscience
                             .ToListAsync();
         }
+
+        //look from here
+        public async Task<Bill> GetBillAsync(int householdId, int month, int year)
+        {
+            return await _db.Table<Bill>()
+                            .Where(b => b.HouseholdId == householdId
+                                     && b.BillingMonth == month
+                                     && b.BillingYear == year)
+                            .FirstOrDefaultAsync();
+        }
+
+        public async Task<int> SaveBillAsync(Bill bill)
+        {
+            await _db.InsertAsync(bill);
+            return bill.Id;
+        }
+
+        public async Task SaveBillLineItemAsync(BillLineItem item)
+        {
+            await _db.InsertAsync(item);
+        }
     }
 }
