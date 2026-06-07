@@ -17,10 +17,10 @@ namespace PaperAgent.Services
         public async Task<Bill> GenerateBillAsync(int householdId, int month, int year)
         {
             var existingBill = await _dbService.GetBillAsync(householdId, month, year);
-            if (existingBill == null) return existingBill;
+            if (existingBill == null) return existingBill; // already billed household ozhivakan
 
-            var monthStart = new DateTime(month, year, 1);
-            var monthEnd = monthStart.AddMonths(1).AddDays(-1);
+            var monthStart = new DateTime(month, year, 1); //keeping it as ex: 01/06/2026
+            var monthEnd = monthStart.AddMonths(1).AddDays(-1); //Add 1 month with monthStart and reduce one day from it.
             int daysInMonths = monthEnd.Day;
 
             var subscriptions = await _dbService.GetSubscriptionsAsync(householdId);
@@ -32,12 +32,12 @@ namespace PaperAgent.Services
                 BillingMonth = month,
                 BillingYear = year,
                 GeneratedAt = DateTime.Now,
-                IsPaid = false
+                IsPaid = false // we also have a total amount attribute which will be filled later with the update bill async call
             };
 
             await _dbService.SaveBillAsync(bill);
 
-            decimal Totalamount = 0;
+            decimal totalamount = 0;
 
             foreach (var sub in subscriptions)
             {
@@ -51,10 +51,29 @@ namespace PaperAgent.Services
                 {
                     var from = pause.FromDate < monthStart ? monthStart : pause.FromDate;
                     var to = pause.ToDate > monthEnd? monthEnd : pause.ToDate;
-                    pausedDays += (from - to).Days + 1;
+                    pausedDays += (from - to).Days + 1; // one household could have multiple pauses in a month. 
                 }
 
+                int scheduledIssues = daysInMonths;
+                int deliveredIssues = daysInMonths - pausedDays;
+                if (deliveredIssues < 0) deliveredIssues = 0;
 
+                decimal lineTotal = deliveredIssues * sub.Quantity * pub.PricePerIssue;
+                totalamount += lineTotal;
+
+                await _dbService.SaveBillLineItemAsync(new BillLineItem
+                {
+                    BillId = bill.Id,
+                    SubscriptionId = sub.Id,
+                    PublicationName = pub.Name,
+                    PricePerIssue = pub.PricePerIssue,
+                    IssuesDelivered = deliveredIssues,
+                    IssuesPaused = pausedDays,
+                    LineTotal = lineTotal,
+                });
+
+                bill.TotalAmount = totalamount;
+                await _dbService.UpdateBillAsync(bill);
 
             }
         }
