@@ -112,5 +112,10 @@ namespace PaperAgent.Services
         {
             await _db.InsertAsync(item);
         }
+
+        public async Task UpdateBillAsync(Bill bill)
+        {
+            await _db.UpdateAsync(bill);
+        }
     }
 }
