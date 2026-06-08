@@ -74,8 +74,8 @@ namespace PaperAgent.Services
 
                 bill.TotalAmount = totalamount;
                 await _dbService.UpdateBillAsync(bill);
-
             }
+            return bill;
         }
     }
 
