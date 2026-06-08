@@ -15,6 +15,8 @@ namespace PaperAgent.ViewModels
     {
         private readonly DatabaseService _dbService;
 
+        private readonly BillingService _billingService;
+
         [ObservableProperty]
         private Household _household;
 
@@ -42,6 +44,12 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private string _pauseReason;
 
+        [ObservableProperty]
+        private int _selectedMonth = DateTime.Now.Month;
+
+        [ObservableProperty]
+        private int _selectedYear = DateTime.Now.Year;
+
         public ObservableCollection<SubscriptionDisplay> Subscriptions { get; set; } = new();
 
         public ObservableCollection<Publication> Publications { get; set; } = new();
@@ -54,9 +62,10 @@ namespace PaperAgent.ViewModels
             public bool IsActive { get; set; }
         }
 
-        public HouseholdDetailViewModel(DatabaseService dbService)
+        public HouseholdDetailViewModel(DatabaseService dbService, BillingService billingService)
         {
             _dbService = dbService;
+            _billingService = billingService;
         }
 
         //Added the LoadHouseholdAsync()
@@ -148,6 +157,11 @@ namespace PaperAgent.ViewModels
             PauseReason = string.Empty;
         }
 
-
+        [RelayCommand]
+        private async Task GenerateBill()
+        {
+            var bill = _billingService.GenerateBillAsync(HouseholdId, SelectedMonth, SelectedYear);
+            await Shell.Current.GoToAsync($"bill?.id={bill.Id}"); //navigate to the Bill page and tell it which bill to show
+        }
     }
 }
