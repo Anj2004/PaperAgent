@@ -29,6 +29,11 @@
         <DatePicker Date="{Binding PauseToDate}"/>
         <Entry Placeholder="Reason (Optional)" Text="{Binding PauseReason}"/>
         <Button Text="Add Pause" Command="{Binding AddPauseCommand}"/>
-        
+
+        <Label Text="Generate Bill" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
+        <Entry Text="{Binding SelectedMonth}" Keyboard="Numeric" Placeholder="Month (1-12)"/>
+        <Entry Text="{Binding SelectedYear}" Keyboard="Numeric" Placeholder="Year"/>
+        <Button Text="Generate Bill" Command="{Binding GenerateBillCommand}"/>
+
     </VerticalStackLayout>
 </ContentPage>
