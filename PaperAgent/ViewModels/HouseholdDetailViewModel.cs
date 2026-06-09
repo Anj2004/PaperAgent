@@ -160,8 +160,8 @@ namespace PaperAgent.ViewModels
         [RelayCommand]
         private async Task GenerateBill()
         {
-            var bill = _billingService.GenerateBillAsync(HouseholdId, SelectedMonth, SelectedYear);
-            await Shell.Current.GoToAsync($"bill?.id={bill.Id}"); //navigate to the Bill page and tell it which bill to show
+            var bill = await _billingService.GenerateBillAsync(HouseholdId, SelectedMonth, SelectedYear);
+            await Shell.Current.GoToAsync($"bill?id={bill.Id}"); //navigate to the Bill page and tell it which bill to show
         }
     }
 }
