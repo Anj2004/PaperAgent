@@ -1,4 +1,4 @@
-<api type="debug" assembly-name="PaperAgent" mvid="2bf1e9aa194e43a3ae5440cbda16c413">
+<api type="debug" assembly-name="PaperAgent" mvid="03ce332ea07b4f2683fb6149812c3764">
   <java-to-managed>
     <entry java-name="crc642d952006a3d725f0/MainActivity" managed-name="PaperAgent.MainActivity, PaperAgent" managed-type-token-id="33554444" />
     <entry java-name="crc642d952006a3d725f0/MainApplication" managed-name="PaperAgent.MainApplication, PaperAgent" managed-type-token-id="33554445" />

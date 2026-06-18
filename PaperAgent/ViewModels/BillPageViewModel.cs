@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace PaperAgent.ViewModels
 {
+    [QueryProperty("BillId","id")]
     public partial class BillPageViewModel: ObservableObject 
     {
         private readonly DatabaseService _dbService;
@@ -16,5 +17,7 @@ namespace PaperAgent.ViewModels
 
         }
 
+        [ObservableProperty]
+        private int _billId;
     }
 }
