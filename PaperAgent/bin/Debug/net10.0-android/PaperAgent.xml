@@ -4,6 +4,17 @@
         <name>PaperAgent</name>
     </assembly>
     <members>
+        <member name="T:PaperAgent.ViewModels.BillPageViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:PaperAgent.ViewModels.BillPageViewModel.BillId">
+            <inheritdoc cref="F:PaperAgent.ViewModels.BillPageViewModel._billId"/>
+        </member>
+        <member name="M:PaperAgent.ViewModels.BillPageViewModel.OnBillIdChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:PaperAgent.ViewModels.BillPageViewModel.BillId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:PaperAgent.ViewModels.BillPageViewModel.BillId"/> is changed.</remarks>
+        </member>
         <member name="T:PaperAgent.ViewModels.HouseholdDetailViewModel">
             <inheritdoc/>
             <inheritdoc/>
@@ -146,6 +157,9 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.BillId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "BillId" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Household">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Household" generated properties.</summary>
         </member>
@@ -205,6 +219,9 @@
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.BillId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "BillId" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Household">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Household" generated properties.</summary>
