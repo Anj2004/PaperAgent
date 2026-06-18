@@ -117,5 +117,10 @@ namespace PaperAgent.Services
         {
             await _db.UpdateAsync(bill);
         }
+
+        public async Task<Bill> GetBillByIdAsync(int id)
+        {
+            return await _db.Table<Bill>().Where(b => b.Id == id).FirstOrDefaultAsync();    
+        }
     }
 }
