@@ -19,5 +19,18 @@ namespace PaperAgent.ViewModels
 
         [ObservableProperty]
         private int _billId;
+
+        partial void OnBillIdChanged(int value)
+        {
+            _ = LoadBillAsync(value);
+        }
+
+        public async Task LoadBillAsync(int id)
+        {
+            var bill = await _dbService.GetBillByIdAsync(id);
+            if (bill == null) return;
+
+            System.Diagnostics.Debug.WriteLine($"Bill found! Total: {bill.TotalAmount}");
+        }
     }
 }
