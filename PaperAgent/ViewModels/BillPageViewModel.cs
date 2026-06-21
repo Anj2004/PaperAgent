@@ -7,9 +7,17 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace PaperAgent.ViewModels
 {
+
     [QueryProperty("BillId","id")]
     public partial class BillPageViewModel: ObservableObject 
     {
+
+        [ObservableProperty]
+        private decimal _totalAmount;
+
+        [ObservableProperty]
+        private string _householdName;
+
         private readonly DatabaseService _dbService;
         public BillPageViewModel(DatabaseService dbService)
         {
@@ -30,7 +38,10 @@ namespace PaperAgent.ViewModels
             var bill = await _dbService.GetBillByIdAsync(id);
             if (bill == null) return;
 
-            System.Diagnostics.Debug.WriteLine($"Bill found! Total: {bill.TotalAmount}");
+            TotalAmount = bill.TotalAmount;
+
+            var household = await _dbService.GetHouseholdByIdAsync(bill.HouseholdId);
+            HouseholdName = household?.Name ?? "Unknown";
         }
     }
 }
