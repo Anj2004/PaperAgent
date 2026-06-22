@@ -4,9 +4,7 @@
              x:Class="PaperAgent.Views.BillPage"
              Title="BillPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="{Binding HouseholdName}" FontSize="24" FontAttributes="Bold"/>
+        <Label Text="{Binding TotalAmount, StringFormat='Total: Rs.{0}'}" FontSize="20"/>
     </VerticalStackLayout>
 </ContentPage>
