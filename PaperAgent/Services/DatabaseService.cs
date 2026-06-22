@@ -58,6 +58,11 @@ namespace PaperAgent.Services
             return await _db.Table<Household>().Where(h => h.Id == id).FirstOrDefaultAsync();
         }
 
+        public async Task<Household> GetHouseholdByIdAsync(int id)
+        {
+            return await _db.Table<Household>().Where(h =>h.Id == id).FirstOrDefaultAsync();
+        }
+
         public async Task<List<Publication>> GetAllPublicationsAsync()
         {
             return await _db.Table<Publication>().ToListAsync();
