@@ -127,5 +127,10 @@ namespace PaperAgent.Services
         {
             return await _db.Table<Bill>().Where(b => b.Id == id).FirstOrDefaultAsync();    
         }
+
+        public async Task<List<BillLineItem>> GetBillLineItemsAsync(int billId)
+        {
+            return await _db.Table<BillLineItem>().Where(b => b.BillId == billId).ToListAsync();
+        }
     }
 }
