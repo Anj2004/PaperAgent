@@ -14,4 +14,6 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    <Button Text="Mark as Paid" Command="{Binding MarkAsPaidCommand}"/>
+    <Label Text="PAID" FontSize="16" TextColor="Green" IsVisible="{Binding IsPaid}"/>
 </ContentPage>
