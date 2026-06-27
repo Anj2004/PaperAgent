@@ -3,17 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PaperAgent.Views.BillPage"
              Title="BillPage">
-    <CollectionView ItemsSource="{Binding LineItems}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <VerticalStackLayout Padding="8">
-                    <Label Text="{Binding PublicationName}" FontSize="14" FontAttributes="Bold"/>
-                    <Label Text="{Binding IssuesDelivered, StringFormat='Issues Delivered:{0}'}" FontSize="12"/>
-                    <Label Text="{Binding LineTotal, StringFormat='Amount: Rs.{0}'}" FontSize="12"/>
-                </VerticalStackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-    <Button Text="Mark as Paid" Command="{Binding MarkAsPaidCommand}"/>
-    <Label Text="PAID" FontSize="16" TextColor="Green" IsVisible="{Binding IsPaid}"/>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="{Binding HouseholdName}" FontSize="24" FontAttributes="Bold"/>
+            <Label Text="{Binding TotalAmount, StringFormat='Total: Rs.{0}'}" FontSize="20"/>
+
+            <CollectionView ItemsSource="{Binding LineItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="8">
+                            <Label Text="{Binding PublicationName}" FontSize="14" FontAttributes="Bold"/>
+                            <Label Text="{Binding IssuesDelivered, StringFormat='Issues Delivered:{0}'}" FontSize="12"/>
+                            <Label Text="{Binding LineTotal, StringFormat='Amount: Rs.{0}'}" FontSize="12"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Mark as Paid" Command="{Binding MarkAsPaidCommand}"/>
+            <Label Text="PAID" FontSize="16" TextColor="Green" IsVisible="{Binding IsPaid}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
