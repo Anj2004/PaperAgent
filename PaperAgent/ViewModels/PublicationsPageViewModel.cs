@@ -69,6 +69,7 @@ namespace PaperAgent.ViewModels
             {
                 // Handle exceptions (e.g., show an error message to the user)
                 Console.WriteLine($"Error adding publication: {ex.Message}");
+                await Shell.Current.DisplayAlert("Error", "Could not add publication. Please try again.", "OK");
             }
 
         }

@@ -124,44 +124,66 @@ namespace PaperAgent.ViewModels
         [RelayCommand]
         public async Task AddSubscription()
         {
-            if (SelectedPublication == null) return;
-
-            var subscription = new Subscription
+            try
             {
-                HouseholdId = HouseholdId,
-                PublicationId = SelectedPublication.Id,
-                StartDate = DateTime.Now,
-                IsActive = true,
-                Quantity = 1
-            };
+                if (SelectedPublication == null) return;
 
-            await _dbService.SaveSubscriptionAsync(subscription);
-            await LoadSubscriptionsAsync();
-            SelectedPublication = null;
+                var subscription = new Subscription
+                {
+                    HouseholdId = HouseholdId,
+                    PublicationId = SelectedPublication.Id,
+                    StartDate = DateTime.Now,
+                    IsActive = true,
+                    Quantity = 1
+                };
+
+                await _dbService.SaveSubscriptionAsync(subscription);
+                await LoadSubscriptionsAsync();
+                SelectedPublication = null;
+            }
+            catch
+            {
+                await Shell.Current.DisplayAlert("Error", "Could not add subscription. Please try again.", "OK");
+            }
+
 
         }
 
         [RelayCommand]
         private async Task AddPause()
         {
-            if (SelectedSubscription == null) return;
-            var pause = new PauseRequest
+            try
             {
-                SubscriptionId = SelectedSubscription.SubscriptionId,
-                FromDate = PauseFromDate,
-                ToDate = PauseToDate,
-                Reason = PauseReason
-            };
-            await _dbService.SavePauseRequestAsync(pause);
-            SelectedSubscription = null;
-            PauseReason = string.Empty;
+                if (SelectedSubscription == null) return;
+                var pause = new PauseRequest
+                {
+                    SubscriptionId = SelectedSubscription.SubscriptionId,
+                    FromDate = PauseFromDate,
+                    ToDate = PauseToDate,
+                    Reason = PauseReason
+                };
+                await _dbService.SavePauseRequestAsync(pause);
+                SelectedSubscription = null;
+                PauseReason = string.Empty;
+            }
+            catch
+            {
+                await Shell.Current.DisplayAlert("Error", "Could not add pause. Please try again.", "OK");
+            }
         }
 
         [RelayCommand]
         private async Task GenerateBill()
         {
-            var bill = await _billingService.GenerateBillAsync(HouseholdId, SelectedMonth, SelectedYear);
-            await Shell.Current.GoToAsync($"bill?id={bill.Id}"); //navigate to the Bill page and tell it which bill to show
+            try
+            {
+                var bill = await _billingService.GenerateBillAsync(HouseholdId, SelectedMonth, SelectedYear);
+                await Shell.Current.GoToAsync($"bill?id={bill.Id}"); //navigate to the Bill page and tell it which bill to show
+            }
+            catch
+            {
+                await Shell.Current.DisplayAlert("Error", "Could not add generate bill. Please try again.", "OK");
+            }
         }
     }
 }

@@ -67,7 +67,7 @@ namespace PaperAgent.ViewModels
             catch(Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"AddHousehold failed: {ex.Message}");
-                System.Diagnostics.Debug.WriteLine($"Stack trace: {ex.StackTrace}");
+                await Shell.Current.DisplayAlert("Error", "Could not add household. Please try again.", "OK");
             }
 
         }
