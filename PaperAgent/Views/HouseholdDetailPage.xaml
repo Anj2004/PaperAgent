@@ -13,6 +13,9 @@
             
         <Label Text="Subscriptions:" FontSize="18" FontAttributes="Bold" Margin="0,16,0,8"/>
         <CollectionView ItemsSource="{Binding Subscriptions}">
+            <CollectionView.EmptyView>
+                <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
+            </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout Padding="8">
