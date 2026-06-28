@@ -23,6 +23,7 @@
     </Style>
 
     <Style TargetType="Button">
+        <Setter Property="Margin" Value="50,8,50,8" />
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -132,6 +133,7 @@
     </Style>
 
     <Style TargetType="ImageButton">
+        <Setter Property="WidthRequest" Value="200"/>
         <Setter Property="Opacity" Value="1" />
         <Setter Property="BorderColor" Value="Transparent"/>
         <Setter Property="BorderWidth" Value="0"/>
