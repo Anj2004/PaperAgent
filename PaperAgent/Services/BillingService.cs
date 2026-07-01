@@ -63,6 +63,11 @@ namespace PaperAgent.Services
                     decimal lineTotal = deliveredIssues * sub.Quantity * pub.PricePerIssue;
                     totalamount += lineTotal;
 
+                    if(totalamount > pub.PricePerMonth)
+                    {
+                        totalamount = pub.PricePerMonth;
+                    }
+
                     await _dbService.SaveBillLineItemAsync(new BillLineItem
                     {
                         BillId = bill.Id,
