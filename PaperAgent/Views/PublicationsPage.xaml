@@ -8,6 +8,7 @@
         <Entry Placeholder="Type" Text="{Binding NewType}" />
         <Entry Placeholder="Frequency" Text="{Binding NewFrequency}" />
         <Entry Placeholder="Price" Text="{Binding NewPricePerIssue}" Keyboard="Numeric" />
+        <Entry Placeholder="Price per Month" Text="{Binding NewPricePerMonth}" Keyboard="Numeric" />
 
         <Button Text="Add Publication" Command="{Binding AddPublicationCommand}" />
 
