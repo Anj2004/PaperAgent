@@ -3,40 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PaperAgent.Views.HouseholdDetailPage"
              Title="HouseholdDetailPage">
-    <VerticalStackLayout>
-        <Label Text="{Binding HouseholdName}" FontSize="24"/>
-        <Label Text="{Binding HouseholdAddress}" FontSize="16"/>
-        <Label Text="{Binding Subscription}" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
-        <Picker Title="Select Publication" ItemsSource="{Binding Publications}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPublication}"/>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="{Binding HouseholdName}" FontSize="24"/>
+            <Label Text="{Binding HouseholdAddress}" FontSize="16"/>
+            <Label Text="{Binding Subscription}" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
+            <Picker Title="Select Publication" ItemsSource="{Binding Publications}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedPublication}"/>
 
-        <Button Text="Add Subscription" Command="{Binding AddSubscriptionCommand}"/>
-            
-        <Label Text="Subscriptions:" FontSize="18" FontAttributes="Bold" Margin="0,16,0,8"/>
-        <CollectionView ItemsSource="{Binding Subscriptions}">
-            <CollectionView.EmptyView>
-                <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
-            </CollectionView.EmptyView>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout Padding="8">
-                        <Label Text="{Binding PublicationName}" FontSize="14"/>
-                        <Label Text="{Binding Quantity, StringFormat='Qty: {0}'}" FontSize="12"/>
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            <Button Text="Add Subscription" Command="{Binding AddSubscriptionCommand}"/>
 
-        <Label Text="Add Pause" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
-        <Picker Title="Select Subscription" ItemsSource="{Binding Subscriptions}" ItemDisplayBinding="{Binding PublicationName}" SelectedItem="{Binding SelectedSubscription}"/>
-        <DatePicker Date="{Binding PauseFromData}"/>
-        <DatePicker Date="{Binding PauseToDate}"/>
-        <Entry Placeholder="Reason (Optional)" Text="{Binding PauseReason}"/>
-        <Button Text="Add Pause" Command="{Binding AddPauseCommand}"/>
+            <Label Text="Subscriptions:" FontSize="18" FontAttributes="Bold" Margin="0,16,0,8"/>
+            <CollectionView ItemsSource="{Binding Subscriptions}">
+                <CollectionView.EmptyView>
+                    <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="8">
+                            <Label Text="{Binding PublicationName}" FontSize="14"/>
+                            <Label Text="{Binding Quantity, StringFormat='Qty: {0}'}" FontSize="12"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Label Text="Generate Bill" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
-        <Entry Text="{Binding SelectedMonth}" Keyboard="Numeric" Placeholder="Month (1-12)"/>
-        <Entry Text="{Binding SelectedYear}" Keyboard="Numeric" Placeholder="Year"/>
-        <Button Text="Generate Bill" Command="{Binding GenerateBillCommand}"/>
+            <Label Text="Add Pause" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
+            <Picker Title="Select Subscription" ItemsSource="{Binding Subscriptions}" ItemDisplayBinding="{Binding PublicationName}" SelectedItem="{Binding SelectedSubscription}"/>
+            <DatePicker Date="{Binding PauseFromData}"/>
+            <DatePicker Date="{Binding PauseToDate}"/>
+            <Entry Placeholder="Reason (Optional)" Text="{Binding PauseReason}"/>
+            <Button Text="Add Pause" Command="{Binding AddPauseCommand}"/>
 
-    </VerticalStackLayout>
+            <Label Text="Generate Bill" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
+            <Entry Text="{Binding SelectedMonth}" Keyboard="Numeric" Placeholder="Month (1-12)"/>
+            <Entry Text="{Binding SelectedYear}" Keyboard="Numeric" Placeholder="Year"/>
+            <Button Text="Generate Bill" Command="{Binding GenerateBillCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>
