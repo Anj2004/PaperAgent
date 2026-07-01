@@ -20,6 +20,9 @@ namespace PaperAgent.Models
 
         [NotNull]
         public decimal PricePerIssue { get; set; }
+
+        [NotNull]
+        public decimal PricePerMonth { get; set; }
         public bool IsActive { get; set; } = true;
 
     }
