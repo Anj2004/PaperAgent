@@ -26,6 +26,9 @@ namespace PaperAgent.ViewModels
 
         [ObservableProperty]
         private decimal _newPricePerIssue;
+
+        [ObservableProperty]
+        private decimal _newPricePerMonth;
         public PublicationsPageViewModel(DatabaseService dbService)
         {
             _dbService = dbService;
@@ -55,6 +58,7 @@ namespace PaperAgent.ViewModels
                     Type = NewType,
                     Frequency = NewFrequency,
                     PricePerIssue = NewPricePerIssue,
+                    PricePerMonth = NewPricePerMonth,
                     IsActive = true
                 };
                 await _dbService.SavePublicationAsync(publication);
@@ -64,6 +68,7 @@ namespace PaperAgent.ViewModels
                 NewType = string.Empty;
                 NewFrequency = string.Empty;
                 NewPricePerIssue = 0;
+                NewPricePerMonth = 0;
             }
             catch (Exception ex)
             {
