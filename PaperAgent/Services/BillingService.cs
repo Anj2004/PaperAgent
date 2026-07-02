@@ -88,7 +88,7 @@ namespace PaperAgent.Services
             {
                 System.Diagnostics.Debug.WriteLine($"GenerateBillAsync failed: {ex.Message}");
                 System.Diagnostics.Debug.WriteLine($"Stack: {ex.StackTrace}");
-                await Shell.Current.DisplayAlert("Error", "Could not generate bill. Please try again.", "OK");
+                await Shell.Current.DisplayAlertAsync("Error", "Could not generate bill. Please try again.", "OK");
                 return null;
             }
             
