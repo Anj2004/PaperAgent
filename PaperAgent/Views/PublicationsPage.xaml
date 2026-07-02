@@ -29,6 +29,7 @@
                             <Label Text="{Binding Type}" FontSize="Small" />
                             <Label Text="{Binding Frequency}" FontSize="Small" />
                             <Label Text="{Binding PricePerIssue, StringFormat='Rs. {0} per issue'}" FontSize="Small" />
+                            <Label Text="{Binding PricePerMonth, StringFormat='Rs. {0} per month'}" FontSize="Small" />
                         </VerticalStackLayout>
                     </HorizontalStackLayout>
                 </DataTemplate>
