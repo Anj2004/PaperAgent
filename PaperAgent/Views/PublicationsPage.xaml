@@ -3,37 +3,43 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PaperAgent.Views.PublicationsPage"
              Title="PublicationsPage">
-    <VerticalStackLayout>
-        <Entry Placeholder="Name" Text="{Binding NewName}"  />
-        <Entry Placeholder="Type" Text="{Binding NewType}" />
-        <Entry Placeholder="Frequency" Text="{Binding NewFrequency}" />
-        <Entry Placeholder="Price" Text="{Binding NewPricePerIssue}" Keyboard="Numeric" />
-        <Entry Placeholder="Price per Month" Text="{Binding NewPricePerMonth}" Keyboard="Numeric" />
+    <ScrollView>
+        <VerticalStackLayout>
+            <Entry Placeholder="Name" Text="{Binding NewName}"  />
+            <Entry Placeholder="Type" Text="{Binding NewType}" />
+            <Entry Placeholder="Frequency" Text="{Binding NewFrequency}" />
+            <Entry Placeholder="Price" Text="{Binding NewPricePerIssue}" Keyboard="Numeric" />
+            <Entry Placeholder="Price per Month" Text="{Binding NewPricePerMonth}" Keyboard="Numeric" />
 
-        <Button Text="Add Publication" Command="{Binding AddPublicationCommand}" />
+            <Button Text="Add Publication" Command="{Binding AddPublicationCommand}" />
 
-        <CollectionView ItemsSource="{Binding Publications}">
-            <CollectionView.EmptyView>
-                <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
-            </CollectionView.EmptyView>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <HorizontalStackLayout Padding="10">
-                        <HorizontalStackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToPublicationCommand}"
+            <CollectionView ItemsSource="{Binding Publications}">
+                <CollectionView.EmptyView>
+                    <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="10">
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToPublicationCommand}"
                                                   CommandParameter="{Binding .}"/>
-                        </HorizontalStackLayout.GestureRecognizers>
+                            </HorizontalStackLayout.GestureRecognizers>
 
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontSize="Medium"/>
-                            <Label Text="{Binding Type}" FontSize="Small" />
-                            <Label Text="{Binding Frequency}" FontSize="Small" />
-                            <Label Text="{Binding PricePerIssue, StringFormat='Rs. {0} per issue'}" FontSize="Small" />
-                            <Label Text="{Binding PricePerMonth, StringFormat='Rs. {0} per month'}" FontSize="Small" />
-                        </VerticalStackLayout>
-                    </HorizontalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontSize="Medium"/>
+                                <Label Text="{Binding Type}" FontSize="Small" />
+                                <Label Text="{Binding Frequency}" FontSize="Small" />
+                                <Label Text="{Binding PricePerIssue, StringFormat='Rs. {0} per issue'}" FontSize="Small" />
+                                <Label Text="{Binding PricePerMonth, StringFormat='Rs. {0} per month'}" FontSize="Small" />
+                                <Button Text="Delete" 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeletePublicationCommand}"
+                                    CommandParameter="{Binding Id}"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

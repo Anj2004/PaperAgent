@@ -79,5 +79,12 @@ namespace PaperAgent.ViewModels
 
         }
 
+        [RelayCommand] //To delete the publication
+        public async Task DeletePublication(int id)
+        {
+            await _dbService.DeletePublicationAsync(id);
+            await LoadPublicationsAsync();
+        }
+
     }
 }

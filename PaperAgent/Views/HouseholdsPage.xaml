@@ -3,47 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PaperAgent.Views.HouseholdsPage"
              Title="HouseholdsPage">
-    <VerticalStackLayout>
-        <Label Text="{Binding HouseholdCount, StringFormat='My Route - {0} households'}" FontSize="24" />
-        
-        <Entry Placeholder="Name" Text="{Binding NewName}" />
-        <Entry Placeholder="Address" Text="{Binding NewAddress}" />
-        <Button Text="Add Household" Command="{Binding AddHouseholdCommand}" />
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="{Binding HouseholdCount, StringFormat='My Route - {0} households'}" FontSize="24" />
 
-        <Button Text="Manage Publications" Command="{Binding GoToPublicationsCommand}"/>
+            <Entry Placeholder="Name" Text="{Binding NewName}" />
+            <Entry Placeholder="Address" Text="{Binding NewAddress}" />
+            <Button Text="Add Household" Command="{Binding AddHouseholdCommand}" />
 
-        <CollectionView ItemsSource="{Binding Households}">
-            <CollectionView.EmptyView>
-                <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
-            </CollectionView.EmptyView>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <HorizontalStackLayout Padding="10">
-                        
-                        <HorizontalStackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToHouseholdCommand}"
-                                                  CommandParameter="{Binding .}"/><!--pass the entire current Household object as a parameter-->
-                        </HorizontalStackLayout.GestureRecognizers>
-                        
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontSize="Medium"/>
-                            <Label Text="{Binding Address}" FontSize="Small" />
-                        </VerticalStackLayout>
-                        
-                        <Button Text="Delete" 
+            <Button Text="Manage Publications" Command="{Binding GoToPublicationsCommand}"/>
+
+            <CollectionView ItemsSource="{Binding Households}">
+                <CollectionView.EmptyView>
+                    <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Padding="10">
+
+                            <HorizontalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.GoToHouseholdCommand}"
+                                                  CommandParameter="{Binding .}"/>
+                                <!--pass the entire current Household object as a parameter-->
+                            </HorizontalStackLayout.GestureRecognizers>
+
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontSize="Medium"/>
+                                <Label Text="{Binding Address}" FontSize="Small" />
+                            </VerticalStackLayout>
+
+                            <Button Text="Delete" 
                             Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteHouseholdCommand}"
                             CommandParameter="{Binding Id}"/>
-                        
-                    </HorizontalStackLayout>
-                    <!--<StackLayout Orientation="Vertical" Padding="10">
+
+                        </HorizontalStackLayout>
+                        <!--<StackLayout Orientation="Vertical" Padding="10">
                         <Label Text="{Binding Name}" FontSize="Medium" />
                         <Label Text="{Binding Address}" FontSize="Small" Margin="10,0,0,0" />
                     </StackLayout>-->
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        
-
-
-    </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

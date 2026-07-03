@@ -137,5 +137,10 @@ namespace PaperAgent.Services
         //{
         //    await _db.UpdateAsync(bill);
         //}
+
+        public async Task DeletePublicationAsync(int id)
+        {
+            await _db.DeleteAsync<Publication>(id);
+        }
     }
 }
