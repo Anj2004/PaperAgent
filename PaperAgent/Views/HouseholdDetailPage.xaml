@@ -27,12 +27,16 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="Add Pause" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
-            <Picker Title="Select Subscription" ItemsSource="{Binding Subscriptions}" ItemDisplayBinding="{Binding PublicationName}" SelectedItem="{Binding SelectedSubscription}"/>
-            <DatePicker Date="{Binding PauseFromData}"/>
-            <DatePicker Date="{Binding PauseToDate}"/>
-            <Entry Placeholder="Reason (Optional)" Text="{Binding PauseReason}"/>
-            <Button Text="Add Pause" Command="{Binding AddPauseCommand}"/>
+            <Button Text="Create Pause Days" Command="{Binding TogglePausedFormCommand}"/>
+            <VerticalStackLayout IsVisible="{Binding ShowPauseForm}">
+                <Label Text="Add Pause" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
+                <Picker Title="Select Subscription" ItemsSource="{Binding Subscriptions}" ItemDisplayBinding="{Binding PublicationName}" SelectedItem="{Binding SelectedSubscription}"/>
+                <DatePicker Date="{Binding PauseFromDate}"/>
+                <DatePicker Date="{Binding PauseToDate}"/>
+                <Entry Placeholder="Reason (Optional)" Text="{Binding PauseReason}"/>
+                <Button Text="OK" Command="{Binding AddPauseCommand}"/>
+            </VerticalStackLayout>
+
 
             <Label Text="Generate Bill" FontSize="16" FontAttributes="Bold" Margin="0,16,0,8"/>
             <Entry Text="{Binding SelectedMonth}" Keyboard="Numeric" Placeholder="Month (1-12)"/>
