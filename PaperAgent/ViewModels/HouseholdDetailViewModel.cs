@@ -50,6 +50,10 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private int _selectedYear = DateTime.Now.Year;
 
+        [ObservableProperty]
+        private bool _showPauseForm = false; 
+
+
         public ObservableCollection<SubscriptionDisplay> Subscriptions { get; set; } = new();
 
         public ObservableCollection<Publication> Publications { get; set; } = new();
@@ -184,6 +188,13 @@ namespace PaperAgent.ViewModels
             {
                 await Shell.Current.DisplayAlert("Error", "Could not add generate bill. Please try again.", "OK");
             }
+        }
+
+        [RelayCommand]
+        private void TogglePausedForm()
+        {
+            ShowPauseForm = !ShowPauseForm;
+            PauseReason = string.Empty;
         }
     }
 }
