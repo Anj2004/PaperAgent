@@ -147,7 +147,7 @@ namespace PaperAgent.ViewModels
             }
             catch
             {
-                await Shell.Current.DisplayAlert("Error", "Could not add subscription. Please try again.", "OK");
+                await Shell.Current.DisplayAlertAsync("Error", "Could not add subscription. Please try again.", "OK");
             }
 
 
@@ -169,10 +169,12 @@ namespace PaperAgent.ViewModels
                 await _dbService.SavePauseRequestAsync(pause);
                 SelectedSubscription = null;
                 PauseReason = string.Empty;
+
+                await Shell.Current.DisplayAlertAsync("Done", "Added Pause Successfuly","OK");
             }
             catch
             {
-                await Shell.Current.DisplayAlert("Error", "Could not add pause. Please try again.", "OK");
+                await Shell.Current.DisplayAlertAsync("Error", "Could not add pause. Please try again.", "OK");
             }
         }
 
@@ -186,7 +188,7 @@ namespace PaperAgent.ViewModels
             }
             catch
             {
-                await Shell.Current.DisplayAlert("Error", "Could not add generate bill. Please try again.", "OK");
+                await Shell.Current.DisplayAlertAsync("Error", "Could not add generate bill. Please try again.", "OK");
             }
         }
 
