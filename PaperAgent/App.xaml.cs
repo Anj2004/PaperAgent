@@ -19,7 +19,7 @@ public partial class App : Application
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"DB Init failed: {ex.Message}");
-                await Shell.Current.DisplayAlert("Error", "Unexpected Database error. Please try again.", "OK");
+                await Shell.Current.DisplayAlertAsync("Error", "Unexpected Database error. Please try again.", "OK");
             }
         }).Wait();
         _appShell = serviceProvider.GetRequiredService<AppShell>();

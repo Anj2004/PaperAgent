@@ -15,7 +15,7 @@
 
             <CollectionView ItemsSource="{Binding Publications}">
                 <CollectionView.EmptyView>
-                    <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
+                    <Label Text="No publications yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
                 </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
