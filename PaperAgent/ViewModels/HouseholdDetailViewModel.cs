@@ -169,10 +169,12 @@ namespace PaperAgent.ViewModels
                 await _dbService.SavePauseRequestAsync(pause);
                 SelectedSubscription = null;
                 PauseReason = string.Empty;
+
+                await Shell.Current.DisplayAlertAsync("Success", "Pause Added Successfully","OK");
             }
             catch
             {
-                await Shell.Current.DisplayAlert("Error", "Could not add pause. Please try again.", "OK");
+                await Shell.Current.DisplayAlertAsync("Error", "Could not add pause. Please try again.", "OK");
             }
         }
 
