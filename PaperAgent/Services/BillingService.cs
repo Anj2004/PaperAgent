@@ -59,12 +59,11 @@ namespace PaperAgent.Services
                     int scheduledIssues = daysInMonths;
                     int deliveredIssues = daysInMonths - pausedDays;
                     if (deliveredIssues < 0) deliveredIssues = 0;
-                    if (deliveredIssues == daysInMonths)
-                    {
-                        totalamount = pub.PricePerMonth;
+
+                    if (deliveredIssues == daysInMonths){
+                        totalamount += pub.PricePerMonth;
                     }
-                    else
-                    {
+                    else{
                         decimal lineTotal = deliveredIssues * sub.Quantity * pub.PricePerIssue;
                         totalamount += lineTotal;
                     }
@@ -84,9 +83,11 @@ namespace PaperAgent.Services
                         LineTotal = totalamount,
                     });
 
-                    //bill.TotalAmount = totalamount;
-                    //await _dbService.UpdateBillAsync(bill);
+
                 }
+                bill.TotalAmount = totalamount;
+                await _dbService.UpdateBillAsync(bill);
+
                 return bill;
             }
             catch(Exception ex)
