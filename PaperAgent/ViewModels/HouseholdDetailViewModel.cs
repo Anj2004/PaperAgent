@@ -51,7 +51,10 @@ namespace PaperAgent.ViewModels
         private int _selectedYear = DateTime.Now.Year;
 
         [ObservableProperty]
-        private bool _showPauseForm = false; 
+        private bool _showPauseForm = false;
+
+        [ObservableProperty]
+        private bool _hasSubscriptions;
 
 
         public ObservableCollection<SubscriptionDisplay> Subscriptions { get; set; } = new();
@@ -108,6 +111,7 @@ namespace PaperAgent.ViewModels
                         IsActive = subscription.IsActive
                     });
                 }
+                HasSubscriptions = Subscriptions.Count > 0;
             });
         }
 
