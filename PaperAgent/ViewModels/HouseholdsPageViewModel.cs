@@ -25,6 +25,12 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private int _householdCount;
 
+        [ObservableProperty]
+        private string _searchedHousehold;
+
+        public ObservableCollection<Household> FilteredHouseholds { get; set; } //the list we are going to update through filerhouseholds fn down below
+
+
         public HouseholdsPageViewModel(DatabaseService dbService) 
         {
             _dbService = dbService;
@@ -40,8 +46,29 @@ namespace PaperAgent.ViewModels
                 foreach (var item in items)
                 {
                     Households.Add(item);
+                    FilteredHouseholds.Add(item);
                 }
                 HouseholdCount = Households.Count; //update the count after loading the households
+            });
+        }
+
+        partial void OnSearchedHouseholdChanged(string value)
+        {
+            FilterHouseholds(value);
+        }
+
+        public async Task FilterHouseholds(string value)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                FilteredHouseholds.Clear();
+
+                var houses = string.IsNullOrEmpty(value) ? Households : Households.Where(h => h.Name.Contains(value, StringComparison.OrdinalIgnoreCase));
+
+                foreach (var house in houses)
+                {
+                    FilteredHouseholds.Add(house);
+                }
             });
         }
 
