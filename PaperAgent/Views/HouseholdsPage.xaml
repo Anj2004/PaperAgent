@@ -13,6 +13,13 @@
 
             <Button Text="Manage Publications" Command="{Binding GoToPublicationsCommand}"/>
 
+            <SearchBar Text="{Binding SearchedHousehold}" IsVisible="{Binding HasSubscriptions}"/>
+            <CollectionView  ItemsSource= "{Binding FilteredHouseholds}">
+                <CollectionView.EmptyView>
+                    <Label Text="No households found." Margin="20" TextColor="grey"/>
+                </CollectionView.EmptyView>
+            </CollectionView>
+
             <CollectionView ItemsSource="{Binding Households}">
                 <CollectionView.EmptyView>
                     <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
