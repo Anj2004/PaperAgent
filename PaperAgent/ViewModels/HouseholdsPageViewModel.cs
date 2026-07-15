@@ -57,7 +57,7 @@ namespace PaperAgent.ViewModels
             FilterHouseholds(value);
         }
 
-        public async Task FilterHouseholds(string value)
+        private void FilterHouseholds(string value)
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
