@@ -28,7 +28,7 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private string _searchedHousehold;
 
-        public ObservableCollection<Household> FilteredHouseholds { get; set; } //the list we are going to update through filerhouseholds fn down below
+        public ObservableCollection<Household> FilteredHouseholds { get; set; } = new(); //the list we are going to update through filerhouseholds fn down below
 
 
         public HouseholdsPageViewModel(DatabaseService dbService) 
