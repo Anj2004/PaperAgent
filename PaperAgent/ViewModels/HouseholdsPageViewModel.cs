@@ -1,11 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Input;
 using PaperAgent.Models;
 using PaperAgent.Services;
-using CommunityToolkit.Mvvm.Input;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+using static Java.Util.Concurrent.Flow;
 
 namespace PaperAgent.ViewModels
 {
@@ -26,10 +27,15 @@ namespace PaperAgent.ViewModels
         private int _householdCount;
 
         [ObservableProperty]
+        private bool _hasHouseholds;
+
+        [ObservableProperty]
         private string _searchedHousehold;
 
         public ObservableCollection<Household> FilteredHouseholds { get; set; } = new(); //the list we are going to update through filerhouseholds fn down below
 
+        [ObservableProperty]
+        private bool _hasMatchedHouses;
 
         public HouseholdsPageViewModel(DatabaseService dbService) 
         {
@@ -50,6 +56,7 @@ namespace PaperAgent.ViewModels
                 }
                 HouseholdCount = Households.Count; //update the count after loading the households
             });
+            HasHouseholds = HouseholdCount > 0;
         }
 
         partial void OnSearchedHouseholdChanged(string value)
@@ -69,6 +76,7 @@ namespace PaperAgent.ViewModels
                 {
                     FilteredHouseholds.Add(house);
                 }
+                HasMatchedHouses = FilteredHouseholds.Count > 0;
             });
         }
 
