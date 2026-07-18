@@ -44,15 +44,17 @@
                                 <!--pass the entire current Household object as a parameter-->
                             </HorizontalStackLayout.GestureRecognizers>
 
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" FontSize="Medium"/>
-                                <Label Text="{Binding Address}" FontSize="Small" />
-                            </VerticalStackLayout>
+                            <Grid ColumnDefinitions="*,Auto" Padding="10">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding Name}" FontSize="Medium"/>
+                                    <Label Text="{Binding Address}" FontSize="Small" />
+                                </VerticalStackLayout>
 
-                            <Button Text="Delete" 
-                            Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteHouseholdCommand}"
-                            CommandParameter="{Binding Id}"/>
-
+                                <Button Grid.Column="1"
+                                    Text="Delete" 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},Path=BindingContext.DeleteHouseholdCommand}"
+                                    CommandParameter="{Binding Id}" VerticalOptions="Center"/>
+                            </Grid>
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
