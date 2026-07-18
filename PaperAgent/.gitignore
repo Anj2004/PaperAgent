@@ -3,3 +3,5 @@ bin/
 obj/
 *.apk
 *.idsig
+*.keystore
+*.keyinfo
