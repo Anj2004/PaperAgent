@@ -13,8 +13,8 @@
 
             <Button Text="Manage Publications" Command="{Binding GoToPublicationsCommand}"/>
 
-            <SearchBar Text="{Binding SearchedHousehold}" IsVisible="{Binding HasSubscriptions}"/>
-            <CollectionView  ItemsSource= "{Binding FilteredHouseholds}">
+            <SearchBar Text="{Binding SearchedHousehold}" IsVisible="{Binding HasHouseholds}"/>
+            <!--<CollectionView  ItemsSource= "{Binding FilteredHouseholds}" IsVisible="{Binding HasMatchedHouses}">
                 <CollectionView.EmptyView>
                     <Label Text="No households found." Margin="20" TextColor="grey"/>
                 </CollectionView.EmptyView>
@@ -28,9 +28,9 @@
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView>-->
 
-            <CollectionView ItemsSource="{Binding Households}">
+            <CollectionView ItemsSource= "{Binding FilteredHouseholds}">
                 <CollectionView.EmptyView>
                     <Label Text="No households yet. Add your first one above!" HorizontalOptions="Center" Margin="20" TextColor="grey"/>
                 </CollectionView.EmptyView>
@@ -54,10 +54,6 @@
                             CommandParameter="{Binding Id}"/>
 
                         </HorizontalStackLayout>
-                        <!--<StackLayout Orientation="Vertical" Padding="10">
-                        <Label Text="{Binding Name}" FontSize="Medium" />
-                        <Label Text="{Binding Address}" FontSize="Small" Margin="10,0,0,0" />
-                    </StackLayout>-->
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

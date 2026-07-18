@@ -34,8 +34,6 @@ namespace PaperAgent.ViewModels
 
         public ObservableCollection<Household> FilteredHouseholds { get; set; } = new(); //the list we are going to update through filerhouseholds fn down below
 
-        [ObservableProperty]
-        private bool _hasMatchedHouses;
 
         public HouseholdsPageViewModel(DatabaseService dbService) 
         {
@@ -55,6 +53,7 @@ namespace PaperAgent.ViewModels
                     FilteredHouseholds.Add(item);
                 }
                 HouseholdCount = Households.Count; //update the count after loading the households
+                FilterHouseholds(string.Empty);
             });
             HasHouseholds = HouseholdCount > 0;
         }
@@ -76,7 +75,6 @@ namespace PaperAgent.ViewModels
                 {
                     FilteredHouseholds.Add(house);
                 }
-                HasMatchedHouses = FilteredHouseholds.Count > 0;
             });
         }
 
