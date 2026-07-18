@@ -7,7 +7,7 @@ using PaperAgent.Models;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Android.Support.Customtabs.Trusted;
+//using Android.Support.Customtabs.Trusted;
 
 namespace PaperAgent.ViewModels
 {
