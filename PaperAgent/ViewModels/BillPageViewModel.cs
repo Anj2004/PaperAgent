@@ -26,7 +26,10 @@ namespace PaperAgent.ViewModels
         private int _billId;
 
         [ObservableProperty]
-        private bool _isPaid; 
+        private bool _isPaid;
+
+        [ObservableProperty]
+        private string _paidText;
 
         public ObservableCollection<BillLineItem> LineItems { get; set; } = new();
 
@@ -50,6 +53,10 @@ namespace PaperAgent.ViewModels
             TotalAmount = bill.TotalAmount;
 
             IsPaid = bill.IsPaid;
+            if (bill.PaidAt.HasValue)
+            {
+                PaidText = $"Paid on {DateTime.Now:dd MMM yyyy}";
+            }
 
             var household = await _dbService.GetHouseholdByIdAsync(bill.HouseholdId);
             HouseholdName = household?.Name ?? "Unknown";
@@ -77,6 +84,7 @@ namespace PaperAgent.ViewModels
 
             await _dbService.UpdateBillAsync(bill);
             IsPaid = true;
+            PaidText = $"Paid on {DateTime.Now:dd MMM yyyy}";
         }
     }
 }
