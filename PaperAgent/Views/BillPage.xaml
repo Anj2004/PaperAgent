@@ -20,7 +20,11 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
             <Button Text="Mark as Paid" Command="{Binding MarkAsPaidCommand}"/>
-            <Label Text="PAID" FontSize="16" TextColor="Green" IsVisible="{Binding IsPaid}" HorizontalTextAlignment="Center"/>
+            <VerticalStackLayout IsVisible="{Binding IsPaid}">
+                <Label Text="PAID" FontSize="16" TextColor="Green" IsVisible="{Binding IsPaid}" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding PaidText}" FontSize="14" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+            <!--<Label Text="PAID" FontSize="16" TextColor="Green" IsVisible="{Binding IsPaid}" HorizontalTextAlignment="Center"/>-->
         </VerticalStackLayout>
     </ScrollView>
 
