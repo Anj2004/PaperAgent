@@ -142,5 +142,22 @@ namespace PaperAgent.Services
         {
             await _db.DeleteAsync<Publication>(id);
         }
+
+        //customer iteration:
+
+        public async Task SaveRouteAsync(Route route)
+        {
+            if (_db == null)
+            {
+                System.Diagnostics.Debug.WriteLine("SaveRouteAsync: _db is null");
+                return;
+            }
+            await _db.InsertAsync(route);
+        }
+
+        public async Task<List<Route>> GetAllRoutesAsync()
+        {
+            return await _db.Table<Route>().ToListAsync();
+        }
     }
 }
