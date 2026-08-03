@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using SQLite;
 
@@ -10,6 +11,9 @@ namespace PaperAgent.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+
+        [ForeignKey("Route"), NotNull]
+        public int RouteId { get; set; }
 
         [NotNull]
         public string Name { get; set; }
