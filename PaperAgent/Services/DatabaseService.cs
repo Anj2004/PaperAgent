@@ -30,6 +30,7 @@ namespace PaperAgent.Services
             await _db.CreateTableAsync<Publication>();
             await _db.CreateTableAsync<PublicationCalendar>();
             await _db.CreateTableAsync<Subscription>();
+            await _db.CreateTableAsync<Route>();
         }
 
         public async Task<List<Household>> GetAllHouseholdsAsync()
@@ -158,6 +159,11 @@ namespace PaperAgent.Services
         public async Task<List<Route>> GetAllRoutesAsync()
         {
             return await _db.Table<Route>().ToListAsync();
+        }
+
+        public async Task DeleteRouteAsync(Route route)
+        {
+            await _db.DeleteAsync(route);
         }
     }
 }
