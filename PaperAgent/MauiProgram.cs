@@ -33,6 +33,9 @@ namespace PaperAgent
             builder.Services.AddTransient<BillPage>();
             builder.Services.AddTransient<BillPageViewModel>();
 
+            builder.Services.AddTransient<RoutesPage>();
+            builder.Services.AddTransient<RoutesPageViewModel>();
+
             builder.Services.AddSingleton<AppShell>();
 
 #if DEBUG
