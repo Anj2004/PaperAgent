@@ -15,7 +15,9 @@ namespace PaperAgent
 
             Routing.RegisterRoute("publications", typeof(PublicationsPage));//Likewise
 
-            Routing.RegisterRoute("bill", typeof(BillPage)); 
+            Routing.RegisterRoute("bill", typeof(BillPage));
+            
+            Routing.RegisterRoute("routes", typeof(RoutesPage));
         }
 
     }
