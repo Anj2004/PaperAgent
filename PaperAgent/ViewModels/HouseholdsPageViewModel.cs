@@ -24,6 +24,9 @@ namespace PaperAgent.ViewModels
         private string _newAddress; //generates public property NewAddress
 
         [ObservableProperty]
+        private int _id; //generates public property Id
+
+        [ObservableProperty]
         private int _householdCount;
 
         [ObservableProperty]
@@ -90,6 +93,7 @@ namespace PaperAgent.ViewModels
                 {
                     Name = NewName,
                     Address = NewAddress,
+                    RouteId = Id
                 };
                 await _dbService.SaveHouseholdAsync(newHouse);//save to db
                 await LoadHouseholdsAsync(); //refresh the list
