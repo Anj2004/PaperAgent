@@ -9,8 +9,9 @@
 
             <Entry Placeholder="Name" Text="{Binding NewName}" />
             <Entry Placeholder="Address" Text="{Binding NewAddress}" />
-            <Button Text="Add Household" Command="{Binding AddHouseholdCommand}" />
+            <Picker Title="Select Route" ItemsSource="{Binding Routes}" ItemDisplayBinding="{Binding NewName}" SelectedItem="{Binding SelectedRoute}" />
 
+            <Button Text="Add Household" Command="{Binding AddHouseholdCommand}" />
             <Button Text="Manage Publications" Command="{Binding GoToPublicationsCommand}"/>
 
             <SearchBar Text="{Binding SearchedHousehold}" IsVisible="{Binding HasHouseholds}"/>
