@@ -21,6 +21,9 @@ namespace PaperAgent.ViewModels
         [ObservableProperty]
         private string _newDescription;
 
+        [ObservableProperty]
+        private Route _selectedRoute;
+
         public RoutesPageViewModel(DatabaseService dbservice)
         {
             _dbservice = dbservice;
@@ -49,12 +52,14 @@ namespace PaperAgent.ViewModels
 
                 Route newRoute = new Route
                 {
+                    Id = SelectedRoute.Id,
                     Name = NewName,
                     Description = NewDescription,
                     IsActive = true
                 };
                 await _dbservice.SaveRouteAsync(newRoute);
                 await LoadRoutesAsync();
+                SelectedRoute = null;
             }
             catch (Exception ex)
             {
